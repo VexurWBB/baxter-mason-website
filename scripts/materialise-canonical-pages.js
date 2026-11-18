@@ -107,3 +107,6 @@ function main() {
 }
 
 main();
+
+// Booking button label across every static page (see scripts/cta-label.cjs).
+require("./cta-label.cjs").run();

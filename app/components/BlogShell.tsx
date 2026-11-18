@@ -85,12 +85,12 @@ export function SiteHeader() {
           <a className="l" href="/contact">
             Contact
           </a>
-          <a className="btn nav-mobile-cta" href="/book-a-free-discovery-call">
-            Book a discovery call <span className="ar">→</span>
+          <a className="btn nav-mobile-cta js-book-call" href="/book-a-free-discovery-call">
+            Book a FREE 15min consult <span className="ar">→</span>
           </a>
         </nav>
-        <a className="btn nav-desktop-cta" href="/book-a-free-discovery-call">
-          Book a discovery call <span className="ar">→</span>
+        <a className="btn nav-desktop-cta js-book-call" href="/book-a-free-discovery-call">
+          Book a FREE 15min consult <span className="ar">→</span>
         </a>
         <button
           className="burger"
@@ -128,8 +128,8 @@ export function SiteFooter() {
                 <span className="final-chip">Sunshine Coast</span>
               </div>
               <div className="cta-row">
-                <a className="btn lg" href="/book-a-free-discovery-call">
-                  Book a discovery call <span className="ar">→</span>
+                <a className="btn lg js-book-call" href="/book-a-free-discovery-call">
+                  Book a FREE 15min consult <span className="ar">→</span>
                 </a>
                 <a
                   className="btn glass lg"
@@ -276,7 +276,7 @@ export function SiteFooter() {
                 <li>QLD Licence 4684962</li>
                 <li>Sunshine Coast, Australia</li>
                 <li>
-                  <a href="/book-a-free-discovery-call">Book a discovery call</a>
+                  <a className="js-book-call" href="/book-a-free-discovery-call">Book a FREE 15min consult</a>
                 </li>
                 <li>
                   <a href="/privacy-statement-buyers-agent-sunshine-coast">Privacy policy</a>
@@ -293,7 +293,7 @@ export function SiteFooter() {
           </div>
         </div>
       </footer>
-      <Script src="/js/main.js?v=20261106" strategy="afterInteractive" />
+      <Script src="/js/main.js?v=20261118" strategy="afterInteractive" />
     </>
   );
 }

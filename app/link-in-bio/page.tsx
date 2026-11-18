@@ -12,7 +12,7 @@ import { BuyerProfileForm } from './BuyerProfileForm';
 const URL = `${SITE}/link-in-bio`;
 const TITLE = 'Start here | Baxter & Mason';
 const DESCRIPTION =
-  'Complete your Baxter & Mason buyer profile, book a discovery call, and find the key resources for buying property on the Sunshine Coast.';
+  'Complete your Baxter & Mason buyer profile, book a free 15 minute consult, and find the key resources for buying property on the Sunshine Coast.';
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -31,10 +31,12 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image' },
 };
 
+const BOOKING_HREF = '/book-a-free-discovery-call';
+
 const LINKS: { href: string; label: string; note: string }[] = [
   {
-    href: '/book-a-free-discovery-call',
-    label: 'Book a free discovery call',
+    href: BOOKING_HREF,
+    label: 'Book a FREE 15min consult',
     note: '15 minutes, no obligation. The fastest way to work out whether we can help.',
   },
   {
@@ -117,7 +119,10 @@ export default function LinkInBioPage() {
       <ul className="bio-links">
         {LINKS.map((link) => (
           <li key={link.href}>
-            <a className="bio-link" href={link.href}>
+            <a
+              className={link.href === BOOKING_HREF ? 'bio-link js-book-call' : 'bio-link'}
+              href={link.href}
+            >
               <span className="bio-link-label">
                 {link.label} <span className="ar">→</span>
               </span>
