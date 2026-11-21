@@ -865,6 +865,71 @@
   height: 100%;
   border: 0;
 }
+/* Click-to-load video: the YouTube player loads only on click, so the box
+   shows the video's own opening frame and a play button until then. */
+.hm-love-video .video-intent {
+  position: relative;
+  height: 100%;
+  padding: 0;
+  gap: 16px;
+  overflow: hidden;
+  background: #111;
+}
+.hm-love-video .video-intent::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.15) 0%, rgba(17, 17, 17, 0.45) 100%);
+  transition: background 0.2s ease;
+}
+.hm-love-video .video-intent-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.hm-love-video .video-intent > span {
+  position: relative;
+  z-index: 1;
+}
+.hm-love-video .video-intent-play {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  padding-left: 4px;
+  border-radius: 50%;
+  background: var(--orange-deep);
+  color: #fff;
+  font-size: 0;
+  box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.55);
+  transition: transform 0.2s ease;
+}
+.hm-love-video .video-intent-label {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6);
+}
+.hm-love-video .video-intent:hover .video-intent-play,
+.hm-love-video .video-intent:focus-visible .video-intent-play {
+  transform: scale(1.08);
+}
+.hm-love-video .video-intent:hover .video-intent-poster {
+  transform: scale(1.02);
+}
+.hm-love-video .video-intent:hover::after {
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.05) 0%, rgba(17, 17, 17, 0.35) 100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hm-love-video .video-intent-poster,
+  .hm-love-video .video-intent-play {
+    transition: none;
+  }
+}
 
 @media (max-width: 620px) {
   .hm-love {
@@ -878,6 +943,16 @@
   }
   .hm-love-video {
     border-radius: 6px;
+  }
+  .hm-love-video .video-intent {
+    gap: 10px;
+  }
+  .hm-love-video .video-intent-play {
+    width: 58px;
+    height: 58px;
+  }
+  .hm-love-video .video-intent-label {
+    font-size: 14px;
   }
 }
 
