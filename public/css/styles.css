@@ -12024,6 +12024,7 @@ body.vx-book-open {
 .btn:not(.glass):not(.ghost):not(.outline):not(.btn--ghost), .nav-desktop-cta, .nav-mobile-cta { background-color: var(--orange-deep); }
 .form-privacy a, .form-alt a, .form-error a, .ft-bottom a, .article-review-notice a { text-decoration: underline; text-underline-offset: 3px; }
 .ft .footer-heading { font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 20px; }
+body footer.ft .footer-heading { color: #ffffff; -webkit-text-fill-color: #ffffff; }
 .video-intent { width: 100%; aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; border: 0; background: var(--grey-deep); color: #fff; cursor: pointer; font: inherit; }
 .video-intent > span:first-child { font-size: 40px; }
 .video-intent:focus-visible { outline: 3px solid var(--orange-deep); outline-offset: 4px; }
