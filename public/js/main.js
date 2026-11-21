@@ -644,42 +644,38 @@
       }
     }
 
+    // Sally, 21 Nov 2026: every booking button goes to the booking page, not a popup. Links to
+    // /book-a-free-discovery-call navigate normally (the js-book-call class no longer opens the
+    // popup). The popup is kept only for in-page "#book-call" / "#book" links.
     function isBookCallLink(anchor) {
       if (!anchor || anchor.tagName !== "A") return false;
-      if (anchor.classList.contains("js-book-call")) return true;
-
       var href = (anchor.getAttribute("href") || "").trim().toLowerCase();
-      // /book-a-free-discovery-call is where every CTA points since the URLs were rebuilt. Until
-      // it was listed here the match only knew the old addresses, so no CTA on the site opened
-      // the calendar - all 414 of them navigated to the booking page instead, where the widget is
-      // boxed into a 459px column (2026-09-07). The old forms stay for any link not yet rewritten.
-      var isBookHref =
-        href.indexOf("/book-a-free-discovery-call") === 0 ||
-        href.indexOf("contact.html") !== -1 ||
-        href === "#book-call" ||
-        href === "#book";
-      if (!isBookHref) return false;
+      return href === "#book-call" || href === "#book";
+    }
 
-      if (
-        anchor.classList.contains("nav-desktop-cta") ||
-        anchor.classList.contains("nav-mobile-cta")
-      ) {
-        return true;
-      }
+    function isBookingPageHref(anchor) {
+      if (!anchor || anchor.tagName !== "A") return false;
+      var href = (anchor.getAttribute("href") || "").trim().toLowerCase();
+      return href.indexOf("/book-a-free-discovery-call") === 0;
+    }
 
-      var text = (anchor.textContent || "")
-        .replace(/\s+/g, " ")
-        .trim()
-        .toLowerCase();
-      if (!text) return false;
-      if (text === "contact" || text.indexOf("contact us") === 0) return false;
-      if (text.indexOf("book") === -1) return false;
-      return text.indexOf("call") !== -1 || text.indexOf("discovery") !== -1;
+    // The calendar written into the booking page itself. On 4 Nov the loader stopped loading on
+    // idle (it now waits for a pointer over a booking link), so this page has to ask for it.
+    var inlineCalendar = document.querySelector('.vexur-widget[data-widget="calendar"]');
+    if (inlineCalendar) {
+      ensurePreconnect();
+      ensureLoader();
     }
 
     document.addEventListener("click", function (ev) {
       var anchor =
         ev.target && ev.target.closest ? ev.target.closest("a") : null;
+      if (inlineCalendar && isBookingPageHref(anchor)) {
+        // Already on the booking page: take the visitor to the calendar instead of reloading.
+        ev.preventDefault();
+        inlineCalendar.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
       if (!isBookCallLink(anchor)) return;
       ev.preventDefault();
       openModal();
@@ -894,4 +890,4 @@
 })();
 
 /* Load the review video only after an explicit play action. */
-document.querySelectorAll("[data-youtube]").forEach(function (button) { button.addEventListener("click", function () { var frame = document.createElement("iframe"); frame.src = "https://www.youtube-nocookie.com/embed/" + button.dataset.youtube + "?autoplay=1"; frame.title = "Baxter and Mason client reviews"; frame.allow = "autoplay; encrypted-media; picture-in-picture"; frame.allowFullscreen = true; button.replaceWith(frame); frame.focus(); }); });
+document.querySelectorAll("[data-youtube]").forEach(function (button) { button.addEventListener("click", function () { var frame = document.createElement("iframe"); frame.src = "https://www.youtube-nocookie.com/embed/" + button.dataset.youtube + "?autoplay=1"; frame.title = "Baxter and Mason promo video"; frame.allow = "autoplay; encrypted-media; picture-in-picture"; frame.allowFullscreen = true; button.replaceWith(frame); frame.focus(); }); });

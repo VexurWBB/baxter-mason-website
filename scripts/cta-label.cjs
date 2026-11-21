@@ -7,8 +7,9 @@
  * with "Book a discovery call" or "Book a free discovery call"; inline sentence links,
  * headings and URLs are left alone.
  *
- * Relabelled links also get the js-book-call class, because main.js only opens the
- * Vexur calendar for links whose text says "call" or "discovery" (or that carry that class).
+ * Booking links are plain links to the booking page (Sally, 21 Nov 2026), so no class is
+ * added. The main.js and styles.css version stamps are bumped here too, so browsers fetch
+ * the current files.
  *
  * Keep the length in LABEL in step with the Vexur booking calendar (currently 15 minutes).
  *
@@ -20,25 +21,20 @@ const path = require('node:path');
 
 const LABEL = 'Book a FREE 15min consult';
 const MODAL_LABEL = 'Book a free 15 minute consult';
-const MAIN_JS_VERSION = '20261118';
+const MAIN_JS_VERSION = '20261121';
 
 const OLD = /^(\s*)Book a (?:[Ff]ree )?[Dd]iscovery [Cc]all/;
 const ANCHOR = /(<a\b[^>]*>)([\s\S]*?)(<\/a>)/gi;
-
-function addClass(open) {
-  if (/\bjs-book-call\b/.test(open)) return open;
-  if (/\sclass=(["'])/i.test(open)) return open.replace(/\sclass=(["'])/i, ' class=$1js-book-call ');
-  return open.replace(/^<a\b/i, '<a class="js-book-call"');
-}
 
 function relabel(html) {
   return html
     .replace(ANCHOR, (match, open, inner, close) => {
       if (!/href=["']\/book-a-free-discovery-call/i.test(open)) return match;
       if (!OLD.test(inner)) return match;
-      return addClass(open) + inner.replace(OLD, '$1' + LABEL) + close;
+      return open + inner.replace(OLD, '$1' + LABEL) + close;
     })
-    .replace(/main\.js\?v=\d+/g, 'main.js?v=' + MAIN_JS_VERSION);
+    .replace(/main\.js\?v=\d+/g, 'main.js?v=' + MAIN_JS_VERSION)
+    .replace(/styles\.css\?v=\d+/g, 'styles.css?v=' + MAIN_JS_VERSION);
 }
 
 function walk(directory) {

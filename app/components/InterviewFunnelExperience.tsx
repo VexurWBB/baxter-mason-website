@@ -153,7 +153,7 @@ export function InterviewVideo({ compact = false }: { compact?: boolean }) {
     <main className={`if-page if-video-page${compact ? " if-special" : ""}`}>
       <link rel="stylesheet" href="/css/interview-funnel.css?v=1" />
       <link rel="stylesheet" href="/css/interview-funnel-font-fix.css?v=1" />
-      <Script src="/js/main.js?v=57" strategy="afterInteractive" />
+      <Script src="/js/main.js?v=20261121" strategy="afterInteractive" />
       <div className="if-video-shell">
         <div className="if-video-banner">
           {compact ? "▶ Break Free From Your HABITS to Transform Your Life ◀" : <><strong>▶ 43-MINUTE VIDEO REPORT:</strong><br />🏡 Don&apos;t get stuck house-hunting forever! The secrets to buying smarter are in this video.</>}

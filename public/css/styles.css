@@ -12042,3 +12042,5 @@ section.page-hero.img-hero h2.display .gi { color: #ff7a4d; -webkit-text-fill-co
 .vx-blog-embed .article-featured-image img { width: 100%; height: 100%; object-fit: cover; }
 .vx-blog-embed .article-author-name { font-weight: 600; margin: 0 0 0.25rem; }
 .vx-blog-embed .related-posts > h2 { font-size: 1.5rem; }
+/* One button orange across the site (Sally, 21 Nov 2026): the deeper orange the buttons use. */
+body .blog-pagination-btn.is-active, body .calc-choice[aria-pressed="true"] { background: var(--orange-deep); border-color: var(--orange-deep); }
