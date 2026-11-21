@@ -12044,3 +12044,5 @@ section.page-hero.img-hero h2.display .gi { color: #ff7a4d; -webkit-text-fill-co
 .vx-blog-embed .related-posts > h2 { font-size: 1.5rem; }
 /* One button orange across the site (Sally, 21 Nov 2026): the deeper orange the buttons use. */
 body .blog-pagination-btn.is-active, body .calc-choice[aria-pressed="true"] { background: var(--orange-deep); border-color: var(--orange-deep); }
+/* Booking page calendar on phones: use the panel padding too, so all seven weekday columns fit (21 Nov 2026). */
+@media (max-width: 620px) { .contact-side > .vexur-widget[data-widget="calendar"] { margin-inline: -28px; width: calc(100% + 56px); max-width: none; } }
