@@ -12032,8 +12032,8 @@ body.vx-book-open {
 html.is-ready #nav { animation: none; opacity: 1; }
 section.page-hero :is(h2,p).display { color: var(--hero-tx); font-size: clamp(36px, 4.8vw, 58px); max-width: none; margin: 0; line-height: 1.06; }
 @media (max-width: 860px) { section.page-hero :is(h2,p).display { font-size: clamp(32px, 8vw, 44px); } }
-section.page-hero.img-hero h2.display { color: #fff; -webkit-text-fill-color: #fff; text-shadow: 0 2px 24px rgba(20,19,18,.55); }
-section.page-hero.img-hero h2.display .gi { color: #ff7a4d; -webkit-text-fill-color: #ff7a4d; }
+section.page-hero.img-hero :is(h2,p).display { color: #fff; -webkit-text-fill-color: #fff; text-shadow: 0 2px 24px rgba(20,19,18,.55); }
+section.page-hero.img-hero :is(h2,p).display .gi { color: #ff7a4d; -webkit-text-fill-color: #ff7a4d; }
 
 /* Readable small accents, booking alternatives and stable article media. */
 .svc-card .svc-card-no, .svc-card .svc-card-cta, body section.blk.contact-page .contact-card-hint { color: var(--orange-deep, #c93a10); }

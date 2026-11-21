@@ -293,7 +293,7 @@ export function SiteFooter() {
           </div>
         </div>
       </footer>
-      <Script src="/js/main.js?v=2026112102" strategy="afterInteractive" />
+      <Script src="/js/main.js?v=2026112103" strategy="afterInteractive" />
     </>
   );
 }

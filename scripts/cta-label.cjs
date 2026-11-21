@@ -21,7 +21,7 @@ const path = require('node:path');
 
 const LABEL = 'Book a FREE 15min consult';
 const MODAL_LABEL = 'Book a free 15 minute consult';
-const MAIN_JS_VERSION = '2026112102';
+const MAIN_JS_VERSION = '2026112103';
 
 const OLD = /^(\s*)Book a (?:[Ff]ree )?[Dd]iscovery [Cc]all/;
 const ANCHOR = /(<a\b[^>]*>)([\s\S]*?)(<\/a>)/gi;
